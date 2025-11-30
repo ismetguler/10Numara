@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="10 Numara Halı Saha Uygulaması">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="10 Numara">
+  
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/33/33736.png"/>
+  <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/33/33736.png">
+
+  <title>10 Numara</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      background-color: #050505; /* Siyah Arka Plan */
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .logo-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    /* Dönen Altın Halka */
+    .spinner {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 3px solid rgba(212, 175, 55, 0.1);
+      border-top: 3px solid #D4AF37;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    /* Logo Resmi */
+    .logo-img {
+      width: 60px;
+      height: 60px;
+      animation: pulse 2s infinite ease-in-out;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes pulse { 0% { transform: scale(0.9); opacity: 0.8; } 50% { transform: scale(1.0); opacity: 1; } 100% { transform: scale(0.9); opacity: 0.8; } }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <div class="spinner"></div>
+    <img src="https://cdn-icons-png.flaticon.com/512/33/33736.png" class="logo-img" alt="Logo">
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/firebase-messaging-sw.js')
+          .then(function(registration) {
+            console.log('Service Worker başarıyla kaydedildi, kapsam:', registration.scope);
+          }, function(err) {
+            console.log('Service Worker kaydı başarısız:', err);
+          });
+      });
+    }
+  </script>
+
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

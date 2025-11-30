@@ -1,0 +1,49 @@
+name: on_numara # BURAYI SAKIN DEĞİŞTİRME
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  image_picker: ^1.2.1
+  firebase_core: ^4.2.1
+  cloud_firestore: ^6.1.0
+  firebase_storage: ^13.0.4
+  shared_preferences: ^2.5.3
+  firebase_auth: ^6.1.2
+  firebase_messaging: ^16.0.4
+  intl: ^0.20.2
+  url_launcher: ^6.3.2
+  http: ^1.6.0
+  googleapis_auth: ^2.0.0
+  flutter_local_notifications: ^18.0.1 # Sürümü biraz düşürdüm, en stabil olanı bu
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.13.1
+
+# --- AYARLAR KISMI ---
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/service_account.json
+    - assets/images/ball_logo.png 
+
+# --- İKON AYARLARI ---
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/ball_logo.png"
+  min_sdk_android: 21
